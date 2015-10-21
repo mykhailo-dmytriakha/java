@@ -14,7 +14,7 @@ public class WeakSoftReference {
             for (SoftReference<byte[]> ref : list) {
                 System.out.print(ref.get() == null ? "*" : "E");
             }
-            list.add(new SoftReference<>(new byte[10_000_000]));
+            list.add(new SoftReference<>(new byte[10000000]));
             Thread.sleep(100);
         }
     }
