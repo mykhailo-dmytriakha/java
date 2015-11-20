@@ -1,10 +1,12 @@
+package _mains;
+
 import utils.math.MathUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
 
-public class Main {
+public class MainPermutation {
     public static void main(String[] args) {
 
         ArrayList<ArrayList<Integer>> permutedList;
