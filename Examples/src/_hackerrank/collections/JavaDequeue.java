@@ -2,6 +2,10 @@ package _hackerrank.collections;
 
 import java.util.*;
 
+/**
+ * task description
+ * <b>https://www.hackerrank.com/challenges/java-dequeue/submissions/code/17812480</b>
+ */
 public class JavaDequeue {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
