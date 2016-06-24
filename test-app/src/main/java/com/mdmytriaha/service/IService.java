@@ -2,10 +2,10 @@ package com.mdmytriaha.service;
 
 import java.util.List;
 
-public interface IService<T> {
+public interface IService<T, ID> {
     T add(T entity);
-    T delete(long id);
-    T getById(long id);
+    T delete(ID id);
+    T getById(ID id);
     T edit (T entity);
     List<T> getAll();
 }
