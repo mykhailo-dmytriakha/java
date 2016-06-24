@@ -2,14 +2,14 @@ package com.mdmytriaha.service.impl;
 
 import com.mdmytriaha.model.User;
 import com.mdmytriaha.repository.UserRepository;
-import com.mdmytriaha.service.IUserService;
+import com.mdmytriaha.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService implements IUserService {
+public class UserService implements IService<User> {
 
     @Autowired
     private UserRepository userRepository;

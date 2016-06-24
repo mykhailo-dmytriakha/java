@@ -2,14 +2,14 @@ package com.mdmytriaha.service.impl;
 
 import com.mdmytriaha.model.Role;
 import com.mdmytriaha.repository.RoleRepository;
-import com.mdmytriaha.service.IRoleService;
+import com.mdmytriaha.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RoleService implements IRoleService {
+public class RoleService implements IService<Role> {
 
     @Autowired
     private RoleRepository roleRepository;
