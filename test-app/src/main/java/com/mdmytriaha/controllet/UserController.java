@@ -3,6 +3,7 @@ package com.mdmytriaha.controllet;
 import com.mdmytriaha.model.User;
 import com.mdmytriaha.service.impl.UserService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequestMapping("/api/")
 public class UserController {
 
+    @Autowired
     private UserService userService;
 
     @RequestMapping(value = "users", method = RequestMethod.GET)
