@@ -1,6 +1,8 @@
 package com.mdmytriakha;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -11,7 +13,7 @@ public class User {
 	private int id;
 	private String name;
 	private ProteinData proteinData = new ProteinData();
-	private Set<UserHistory> history = new HashSet<>();
+	private List<UserHistory> history = new ArrayList<>();
 
 	@Override
 	public String toString() {
@@ -48,11 +50,11 @@ public class User {
 		this.proteinData = proteinData;
 	}
 
-	public Set<UserHistory> getHistory() {
+	public List<UserHistory> getHistory() {
 		return history;
 	}
 
-	public void setHistory(Set<UserHistory> history) {
+	public void setHistory(List<UserHistory> history) {
 		this.history = history;
 	}
 }
