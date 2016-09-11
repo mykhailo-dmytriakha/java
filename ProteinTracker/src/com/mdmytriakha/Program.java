@@ -2,6 +2,8 @@ package com.mdmytriakha;
 
 import org.hibernate.Session;
 
+import java.util.Date;
+
 /**
  * @author Mykhailo on 9/7/2016.
  */
@@ -13,18 +15,21 @@ public class Program {
 
 		User user = new User();
 		user.setName("DouJohnPaul");
-		user.setGoal(150);
+		user.getHistory().add(new UserHistory(new Date(), "set name to DouLohnPaul"));
+		user.getProteinData().setGoal(170);
+		user.getHistory().add(new UserHistory(new Date(), "set goal to 170"));
 		session.save(user);
 
 		session.getTransaction().commit();
 		//-----
 		session.beginTransaction();
 
-		User loadedUser = session.get(User.class, 4);
+		User loadedUser = session.get(User.class, 1);
 		System.out.println(loadedUser);
 
-		loadedUser.setName("PaulNew1");
-		loadedUser.setTotal(loadedUser.getTotal() + 50);
+		loadedUser.setName("PaulNew");
+		loadedUser.getProteinData().setTotal(loadedUser.getProteinData().getTotal() + 50);
+		loadedUser.getHistory().add(new UserHistory(new Date(), "added 50 protein"));
 
 		System.out.println(loadedUser);
 

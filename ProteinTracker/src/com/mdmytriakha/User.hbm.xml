@@ -9,13 +9,22 @@
 			<generator class="identity"/>
 		</id>
 		<property name="name" type="java.lang.String">
-			<column name="NAME" />
+			<column name="NAME"/>
 		</property>
-		<property name="total" type="int">
-			<column name="TOTAL"/>
-		</property>
-		<property name="goal" type="int">
-			<column name="GOAL"/>
-		</property>
+		<component name="proteinData">
+			<property name="total" type="int">
+				<column name="TOTAL"/>
+			</property>
+			<property name="goal" type="int">
+				<column name="GOAL"/>
+			</property>
+		</component>
+		<set name="history" table="USER_HISTORY">
+			<key column="ID"/>
+			<composite-element class="com.mdmytriakha.UserHistory">
+				<property name="entryTime" type="date" column="ENTRY_TIME"/>
+				<property name="entry" type="string" column="ENTRY"/>
+			</composite-element>
+		</set>
 	</class>
 </hibernate-mapping>

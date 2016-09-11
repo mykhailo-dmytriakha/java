@@ -1,5 +1,8 @@
 package com.mdmytriakha;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author by Mykhailo on 9/8/2016.
  */
@@ -7,8 +10,19 @@ public class User {
 
 	private int id;
 	private String name;
-	private int total;
-	private int goal;
+	private ProteinData proteinData = new ProteinData();
+	private Set<UserHistory> history = new HashSet<>();
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", proteinData=" + proteinData +
+				", history=" + history +
+				'}';
+	}
+
 
 	public int getId() {
 		return id;
@@ -26,29 +40,19 @@ public class User {
 		this.name = name;
 	}
 
-	public int getTotal() {
-		return total;
+	public ProteinData getProteinData() {
+		return proteinData;
 	}
 
-	public void setTotal(int total) {
-		this.total = total;
+	public void setProteinData(ProteinData proteinData) {
+		this.proteinData = proteinData;
 	}
 
-	public int getGoal() {
-		return goal;
+	public Set<UserHistory> getHistory() {
+		return history;
 	}
 
-	public void setGoal(int goal) {
-		this.goal = goal;
-	}
-
-	@Override
-	public String toString() {
-		return "User{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				", total=" + total +
-				", goal=" + goal +
-				'}';
+	public void setHistory(Set<UserHistory> history) {
+		this.history = history;
 	}
 }
