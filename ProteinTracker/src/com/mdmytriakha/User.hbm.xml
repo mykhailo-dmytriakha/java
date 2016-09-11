@@ -19,13 +19,13 @@
 				<column name="GOAL"/>
 			</property>
 		</component>
-		<list name="history" table="USER_HISTORY">
+		<map name="history" table="USER_HISTORY">
 			<key column="ID"/>
-			<list-index column="POSITION"/>
+			<map-key type="string" column="ENTRY_ID"/>
 			<composite-element class="com.mdmytriakha.UserHistory">
 				<property name="entryTime" type="date" column="ENTRY_TIME"/>
 				<property name="entry" type="string" column="ENTRY"/>
 			</composite-element>
-		</list>
+		</map>
 	</class>
 </hibernate-mapping>
