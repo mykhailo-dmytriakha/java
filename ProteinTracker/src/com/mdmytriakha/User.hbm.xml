@@ -19,13 +19,15 @@
 				<column name="GOAL"/>
 			</property>
 		</component>
-		<map name="history" table="USER_HISTORY">
-			<key column="ID"/>
-			<map-key type="string" column="ENTRY_ID"/>
+		<idbag name="history" table="USER_HISTORY">
+			<collection-id column="ID" type="int">
+				<generator class="increment"></generator>
+			</collection-id>
+			<key column="USER_ID"/>
 			<composite-element class="com.mdmytriakha.UserHistory">
 				<property name="entryTime" type="date" column="ENTRY_TIME"/>
 				<property name="entry" type="string" column="ENTRY"/>
 			</composite-element>
-		</map>
+		</idbag>
 	</class>
 </hibernate-mapping>

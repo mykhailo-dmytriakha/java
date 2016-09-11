@@ -10,7 +10,7 @@ public class User {
 	private int id;
 	private String name;
 	private ProteinData proteinData = new ProteinData();
-	private Map<String, UserHistory> history = new HashMap<>();
+	private Collection<UserHistory> history = new ArrayList<>();
 
 	@Override
 	public String toString() {
@@ -46,11 +46,11 @@ public class User {
 		this.proteinData = proteinData;
 	}
 
-	public Map<String, UserHistory> getHistory() {
+	public Collection<UserHistory> getHistory() {
 		return history;
 	}
 
-	public void setHistory(Map<String, UserHistory> history) {
+	public void setHistory(Collection<UserHistory> history) {
 		this.history = history;
 	}
 }
