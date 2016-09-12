@@ -16,5 +16,6 @@
 		<mapping resource="com/mdmytriakha/User.hbm.xml"/>
 		<mapping resource="com/mdmytriakha/UserHistory.hbm.xml"/>
 		<mapping resource="com/mdmytriakha/ProteinData.hbm.xml"/>
+		<mapping resource="com/mdmytriakha/GoalAlert.hbn.xml"/>
 	</session-factory>
 </hibernate-configuration>

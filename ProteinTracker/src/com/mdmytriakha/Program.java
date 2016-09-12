@@ -17,7 +17,9 @@ public class Program {
 		user.setName("DouJohnPaul");
 		user.addHistory(new UserHistory(new Date(), "set name to DouLohnPaul"));
 		user.getProteinData().setGoal(170);
-//		user.addHistory(new UserHistory(new Date(), "set goal to 170"));
+		user.addHistory(new UserHistory(new Date(), "set goal to 170"));
+
+		user.setGoalAlert(new GoalAlert("congratulations!"));
 		session.save(user);
 
 		session.getTransaction().commit();
@@ -31,6 +33,7 @@ public class Program {
 		loadedUser.getProteinData().setTotal(loadedUser.getProteinData().getTotal() + 50);
 		loadedUser.addHistory(new UserHistory(new Date(), "added 50 protein"));
 
+		user.setProteinData(new ProteinData());
 //		System.out.println(loadedUser);
 
 		session.getTransaction().commit();

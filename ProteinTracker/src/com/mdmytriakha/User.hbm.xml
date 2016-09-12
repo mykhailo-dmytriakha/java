@@ -11,11 +11,19 @@
 		<property name="name" type="java.lang.String">
 			<column name="NAME"/>
 		</property>
-		<one-to-one name="proteinData" class="com.mdmytriakha.ProteinData" cascade="save-update"/>
+
+		<many-to-one name="proteinData" class="com.mdmytriakha.ProteinData" column="PROTEIN_DATA_ID"
+		             cascade="save-update" unique="true"/>
+
 		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
 			<key column="USER_ID"/>
 			<list-index column="POSITION"/>
 			<one-to-many class="com.mdmytriakha.UserHistory"/>
 		</list>
+
+		<join table="USER_GOALALERT" optional="true">
+			<key column="USER_ID"/>
+			<many-to-one name="goalAlert" column="GOALALERT_ID" not-null="true" unique="true" cascade="save-update"/>
+		</join>
 	</class>
 </hibernate-mapping>
