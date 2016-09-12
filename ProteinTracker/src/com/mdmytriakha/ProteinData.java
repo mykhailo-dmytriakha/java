@@ -4,6 +4,11 @@ package com.mdmytriakha;
  * @author by Mykhailo on 9/11/2016.
  */
 public class ProteinData {
+	private int id;
+	private int total;
+	private int goal;
+	private User user;
+
 	public int getTotal() {
 		return total;
 	}
@@ -20,14 +25,19 @@ public class ProteinData {
 		this.goal = goal;
 	}
 
-	private int total;
-	private int goal;
+	public int getId() {
+		return id;
+	}
 
-	@Override
-	public String toString() {
-		return "ProteinData{" +
-				"total=" + total +
-				", goal=" + goal +
-				'}';
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

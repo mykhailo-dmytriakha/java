@@ -11,23 +11,11 @@
 		<property name="name" type="java.lang.String">
 			<column name="NAME"/>
 		</property>
-		<component name="proteinData">
-			<property name="total" type="int">
-				<column name="TOTAL"/>
-			</property>
-			<property name="goal" type="int">
-				<column name="GOAL"/>
-			</property>
-		</component>
-		<idbag name="history" table="USER_HISTORY">
-			<collection-id column="ID" type="int">
-				<generator class="increment"></generator>
-			</collection-id>
+		<one-to-one name="proteinData" class="com.mdmytriakha.ProteinData" cascade="save-update"/>
+		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
 			<key column="USER_ID"/>
-			<composite-element class="com.mdmytriakha.UserHistory">
-				<property name="entryTime" type="date" column="ENTRY_TIME"/>
-				<property name="entry" type="string" column="ENTRY"/>
-			</composite-element>
-		</idbag>
+			<list-index column="POSITION"/>
+			<one-to-many class="com.mdmytriakha.UserHistory"/>
+		</list>
 	</class>
 </hibernate-mapping>

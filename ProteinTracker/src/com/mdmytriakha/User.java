@@ -10,16 +10,10 @@ public class User {
 	private int id;
 	private String name;
 	private ProteinData proteinData = new ProteinData();
-	private Collection<UserHistory> history = new ArrayList<>();
+	private List<UserHistory> history = new ArrayList<>();
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				", proteinData=" + proteinData +
-				", history=" + history +
-				'}';
+	public User(){
+		setProteinData(new ProteinData());
 	}
 
 	public int getId() {
@@ -44,13 +38,19 @@ public class User {
 
 	public void setProteinData(ProteinData proteinData) {
 		this.proteinData = proteinData;
+		proteinData.setUser(this);
 	}
 
-	public Collection<UserHistory> getHistory() {
+	public List<UserHistory> getHistory() {
 		return history;
 	}
 
-	public void setHistory(Collection<UserHistory> history) {
+	public void setHistory(List<UserHistory> history) {
 		this.history = history;
+	}
+
+	public void addHistory(UserHistory historyItem){
+		historyItem.setUser(this);
+		history.add(historyItem);
 	}
 }
