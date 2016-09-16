@@ -1,6 +1,8 @@
 package com.mdmytriakha;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
 import java.util.Date;
@@ -17,11 +19,15 @@ public class Program {
 		session.beginTransaction();
 
 //		Query query = session.createQuery("from GoalAlert ").setFirstResult(2).setMaxResults(3);
-		Query query = session.getNamedQuery("GetAllGoalAlerts");
+//		Query query = session.getNamedQuery("GetAllGoalAlerts");
 
-		List<GoalAlert> users = query.list();
-		for (GoalAlert  user : users){
-			System.out.println(user.getMessage());
+		Criteria criteria = session.createCriteria(User.class)
+				.add(Restrictions.eq("name", "joe"))
+				.add(Restrictions.eq("id", 1));
+
+		List<User> users = criteria.list();
+		for (User  user : users){
+			System.out.println(user.getName());
 		}
 
 		session.getTransaction().commit();
