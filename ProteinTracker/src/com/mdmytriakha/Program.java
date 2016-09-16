@@ -2,8 +2,8 @@ package com.mdmytriakha;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
 
 import java.util.Date;
 import java.util.List;
@@ -22,12 +22,20 @@ public class Program {
 //		Query query = session.getNamedQuery("GetAllGoalAlerts");
 
 		Criteria criteria = session.createCriteria(User.class)
-				.add(Restrictions.eq("name", "joe"))
-				.add(Restrictions.eq("id", 1));
+				.add(Restrictions.or(
+						Restrictions.eq("name", "Joe"),
+						Restrictions.eq("name", "Bod")
+				)).setProjection(
+						Projections.projectionList()
+								.add(Projections.property("id"))
+								.add(Projections.property("name"))
+				);
 
-		List<User> users = criteria.list();
-		for (User  user : users){
-			System.out.println(user.getName());
+		List<Object[]> results = criteria.list();
+		for (Object[] result : results) {
+			for (Object o : result) {
+				System.out.println(o.toString());
+			}
 		}
 
 		session.getTransaction().commit();
@@ -58,7 +66,7 @@ public class Program {
 		user.addHistory(new UserHistory(new Date(), "Set goal to " + goal));
 		user.getProteinData().setTotal(total);
 		user.addHistory(new UserHistory(new Date(), "Set total to " + total));
-		for(String alert : alerts){
+		for (String alert : alerts) {
 			user.getGoalAlerts().add(new GoalAlert(alert));
 		}
 
