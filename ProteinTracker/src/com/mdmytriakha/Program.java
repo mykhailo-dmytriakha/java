@@ -22,20 +22,17 @@ public class Program {
 //		Query query = session.getNamedQuery("GetAllGoalAlerts");
 
 		Criteria criteria = session.createCriteria(User.class)
+				.createAlias("proteinData", "pd")
 				.add(Restrictions.or(
 						Restrictions.eq("name", "Joe"),
 						Restrictions.eq("name", "Bod")
 				)).setProjection(
-						Projections.projectionList()
-								.add(Projections.property("id"))
-								.add(Projections.property("name"))
+						Projections.property("pd.total")
 				);
 
-		List<Object[]> results = criteria.list();
-		for (Object[] result : results) {
-			for (Object o : result) {
+		List<Object> results = criteria.list();
+		for (Object o : results) {
 				System.out.println(o.toString());
-			}
 		}
 
 		session.getTransaction().commit();
