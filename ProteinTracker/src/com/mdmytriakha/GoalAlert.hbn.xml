@@ -10,5 +10,8 @@
 			<generator class="identity"/>
 		</id>
 		<property name="message" type="string" column="MESSAGE"/>
+		<query name="GetAllGoalAlerts">
+			<![CDATA[from GoalAlert]]>
+		</query>
 	</class>
 </hibernate-mapping>

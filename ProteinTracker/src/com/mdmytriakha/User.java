@@ -1,6 +1,9 @@
 package com.mdmytriakha;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author by Mykhailo on 9/8/2016.
@@ -11,9 +14,9 @@ public class User {
 	private String name;
 	private ProteinData proteinData = new ProteinData();
 	private List<UserHistory> history = new ArrayList<>();
-	private GoalAlert goalAlert;
+	private Set<GoalAlert> goalAlerts = new HashSet<>();
 
-	public User(){
+	public User() {
 		setProteinData(new ProteinData());
 	}
 
@@ -50,16 +53,16 @@ public class User {
 		this.history = history;
 	}
 
-	public void addHistory(UserHistory historyItem){
+	public void addHistory(UserHistory historyItem) {
 		historyItem.setUser(this);
 		history.add(historyItem);
 	}
 
-	public GoalAlert getGoalAlert() {
-		return goalAlert;
+	public Set<GoalAlert> getGoalAlerts() {
+		return goalAlerts;
 	}
 
-	public void setGoalAlert(GoalAlert goalAlert) {
-		this.goalAlert = goalAlert;
+	public void setGoalAlerts(Set<GoalAlert> goalAlerts) {
+		this.goalAlerts = goalAlerts;
 	}
 }

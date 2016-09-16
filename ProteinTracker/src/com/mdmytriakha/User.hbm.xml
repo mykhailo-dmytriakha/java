@@ -21,9 +21,9 @@
 			<one-to-many class="com.mdmytriakha.UserHistory"/>
 		</list>
 
-		<join table="USER_GOALALERT" optional="true">
+		<set name="goalAlerts" table="USER_GOALALERT" cascade="save-update">
 			<key column="USER_ID"/>
-			<many-to-one name="goalAlert" column="GOALALERT_ID" not-null="true" unique="true" cascade="save-update"/>
-		</join>
+			<many-to-many class="com.mdmytriakha.GoalAlert" column="GOALALERT_ID"/>
+		</set>
 	</class>
 </hibernate-mapping>
