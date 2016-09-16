@@ -1,5 +1,9 @@
 package com.mdmytriakha;
 
+import com.mdmytriakha.entity.GoalAlert;
+import com.mdmytriakha.entity.User;
+import com.mdmytriakha.entity.UserHistory;
+import com.mdmytriakha.utils.HibernateUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;

@@ -1,4 +1,4 @@
-package com.mdmytriakha;
+package com.mdmytriakha.entity;
 
 /**
  * @author by Mykhailo on 9/11/2016.

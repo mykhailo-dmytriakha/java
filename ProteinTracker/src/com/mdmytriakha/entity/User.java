@@ -1,4 +1,4 @@
-package com.mdmytriakha;
+package com.mdmytriakha.entity;
 
 import java.util.ArrayList;
 import java.util.HashSet;

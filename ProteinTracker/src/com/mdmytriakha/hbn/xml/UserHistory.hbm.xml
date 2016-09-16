@@ -3,13 +3,13 @@
 		"-//Hibernate/Hibernate Mapping DTD//EN"
 		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.mdmytriakha.ProteinData" table="PROTEIN_DATA">
+	<class name="com.mdmytriakha.entity.UserHistory" table="USER_HISTORY">
 		<id name="id" type="int">
 			<column name="ID"/>
 			<generator class="increment"/>
 		</id>
-		<one-to-one name="user" class="com.mdmytriakha.User" property-ref="proteinData"/>
-		<property name="total" type="int" column="TOTAL"/>
-		<property name="goal" type="int" column="GOAL"/>
+		<many-to-one name="user" class="com.mdmytriakha.entity.User" column="USER_ID" not-null="true"/>
+		<property name="entryTime" type="date" column="ENTRY_TIME"/>
+		<property name="entry" type="string" column="ENTRY"/>
 	</class>
 </hibernate-mapping>

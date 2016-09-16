@@ -1,4 +1,4 @@
-package com.mdmytriakha;
+package com.mdmytriakha.entity;
 
 import java.util.Date;
 

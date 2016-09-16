@@ -4,7 +4,7 @@
 		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.mdmytriakha.GoalAlert" table="GOALALERT">
+	<class name="com.mdmytriakha.entity.GoalAlert" table="GOALALERT">
 		<id name="id" type="int">
 			<column name="ID"/>
 			<generator class="identity"/>

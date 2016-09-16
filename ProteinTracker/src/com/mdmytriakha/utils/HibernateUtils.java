@@ -1,4 +1,4 @@
-package com.mdmytriakha;
+package com.mdmytriakha.utils;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
@@ -8,7 +8,7 @@ import org.hibernate.service.ServiceRegistry;
 import java.io.File;
 
 /**
- * Created by Mykhailo on 9/7/2016.
+ * @author by Mykhailo on 9/7/2016.
  */
 public class HibernateUtils {
 	private static SessionFactory sessionFactory;
