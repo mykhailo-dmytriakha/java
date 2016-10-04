@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mdmytriakha.entity.ProteinData" table="PROTEIN_DATA">
+		<id name="id" type="int">
+			<column name="ID"/>
+			<generator class="increment"/>
+		</id>
+		<one-to-one name="user" class="com.mdmytriakha.entity.User" property-ref="proteinData"/>
+		<property name="total" type="int" column="TOTAL"/>
+		<property name="goal" type="int" column="GOAL"/>
+	</class>
+</hibernate-mapping>

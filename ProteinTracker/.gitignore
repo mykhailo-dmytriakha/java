@@ -1,0 +1,11 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IntelliJ IDE specific
+.idea/
+.idea/modules
+*.iml
+lib/
+out/
