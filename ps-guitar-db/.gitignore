@@ -1,0 +1,3 @@
+/target/
+/.idea/
+/src/main/resources/h2/db.h2.db
