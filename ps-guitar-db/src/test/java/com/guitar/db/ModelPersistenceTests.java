@@ -6,6 +6,7 @@ import com.guitar.db.repository.ModelRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,6 +54,8 @@ public class ModelPersistenceTests {
 
 		//delete BC location now
 		modelRepository.delete(otherModel);
+
+		modelJpaRepository.aCustomMethod();
 	}
 
 	@Test
@@ -63,8 +66,8 @@ public class ModelPersistenceTests {
 
 	@Test
 	public void testGetModelsByPriceRangeAndWoodType() throws Exception {
-		List<Model> mods = modelRepository.getModelsByPriceRangeAndWoodType(BigDecimal.valueOf(1000L), BigDecimal.valueOf(2000L), "Maple");
-		assertEquals(3, mods.size());
+		Page<Model> mods = modelRepository.getModelsByPriceRangeAndWoodType(BigDecimal.valueOf(1000L), BigDecimal.valueOf(2000L), "Maple");
+		assertEquals(2, mods.getSize());
 	}
 
 	@Test
