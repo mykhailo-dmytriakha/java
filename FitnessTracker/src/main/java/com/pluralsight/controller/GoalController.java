@@ -1,6 +1,7 @@
 package com.pluralsight.controller;
 
 import com.pluralsight.model.Goal;
+import com.pluralsight.model.GoalReport;
 import com.pluralsight.service.GoalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,5 +53,13 @@ public class GoalController {
 
 		model.addAttribute("goals", goals);
 		return "getGoals";
+	}
+
+	@RequestMapping(value = "getGoalReports", method = RequestMethod.GET)
+	public String getGoalRepots(Model model) {
+		List<GoalReport> goalReports = goalService.findAllGoalReports();
+
+		model.addAttribute("goalReports", goalReports);
+		return "getGoalReports";
 	}
 }
