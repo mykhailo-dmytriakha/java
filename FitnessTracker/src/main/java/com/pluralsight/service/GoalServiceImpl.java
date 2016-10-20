@@ -25,7 +25,7 @@ public class GoalServiceImpl implements GoalService {
 
 	@Override
 	public List<Goal> findAllGoals() {
-		return goalRepository.findAllGoals();
+		return goalRepository.findAll();
 	}
 
 	@Override
