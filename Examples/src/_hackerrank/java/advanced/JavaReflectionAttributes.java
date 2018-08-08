@@ -1,4 +1,4 @@
-package _hackerrank.advanced;
+package _hackerrank.java.advanced;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
