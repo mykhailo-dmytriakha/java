@@ -29,4 +29,8 @@ public class StringUtil {
         Arrays.sort(chars);
         return new String(chars);
     }
+
+    public static boolean isBlank(String s){
+        return s == null || s.trim().equals("");
+    }
 }
