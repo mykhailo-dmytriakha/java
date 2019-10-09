@@ -1,4 +1,4 @@
-package _leetCode;
+package _leetCode.arrays;
 
 public class RemoveDuplicates {
 
@@ -7,10 +7,10 @@ public class RemoveDuplicates {
             return "[]";
         }
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int index = 0; index < length; index++) {
             int number = nums[index];
-            result += Integer.toString(number) + ", ";
+            result.append(number).append(", ");
         }
         return "[" + result.substring(0, result.length() - 2) + "]";
     }
@@ -26,17 +26,27 @@ public class RemoveDuplicates {
     }
 
     public static int removeDuplicates(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
+        if(nums.length == 1){
+            return 1;
         }
-        int val = nums[0], length = 1;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[length] = nums[i];
-                length++;
-                val = nums[i];
+
+        int e = nums.length;
+        int i;
+        for(i = 1; i < e; i++){
+            if(nums[i] == nums[i-1]){
+                putValueToTheEndAndShift(nums, i);
+                e--;
+                i--;
             }
         }
-        return length;
+        return i;
+    }
+
+    private static void putValueToTheEndAndShift(int[] array, int index){
+        int value = array[index];
+        for(int i = index; i<array.length-1; i++){
+            array[i] = array[i+1];
+        }
+        array[array.length - 1] = value;
     }
 }
